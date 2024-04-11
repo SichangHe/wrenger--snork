@@ -9,6 +9,7 @@ pub mod floodfill;
 pub mod game;
 pub mod grid;
 pub mod search;
+pub mod simulate;
 mod util;
 
 pub fn logging() {
