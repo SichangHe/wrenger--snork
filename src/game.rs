@@ -381,13 +381,13 @@ impl Debug for Game {
         impl Debug for FmtCell {
             fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
                 match *self {
-                    FmtCell::Free => write!(f, "."),
-                    FmtCell::Food => write!(f, "{}", "o".red()),
+                    FmtCell::Free => write!(f, "·"),
+                    FmtCell::Food => write!(f, "{}", "○".red()),
                     FmtCell::Tail(dir, id) => match dir {
-                        Direction::Up => write!(f, "{}", "^".color(id_color(id))),
-                        Direction::Right => write!(f, "{}", ">".color(id_color(id))),
-                        Direction::Down => write!(f, "{}", "v".color(id_color(id))),
-                        Direction::Left => write!(f, "{}", "<".color(id_color(id))),
+                        Direction::Up => write!(f, "{}", "▲".color(id_color(id))),
+                        Direction::Right => write!(f, "{}", "▶".color(id_color(id))),
+                        Direction::Down => write!(f, "{}", "▼".color(id_color(id))),
+                        Direction::Left => write!(f, "{}", "◀".color(id_color(id))),
                     },
                     FmtCell::Head(id) => write!(f, "{}", id.color(id_color(id))),
                 }
