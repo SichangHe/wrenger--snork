@@ -4,10 +4,12 @@ use std::mem::size_of;
 use std::ops::{Index, IndexMut};
 use std::{f64, usize};
 
+use serde::{Deserialize, Serialize};
+
 use crate::env::{Direction, Vec2D, HAZARD_DAMAGE};
 use crate::util::OrdPair;
 
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 pub enum CellT {
     Free,
     Food,
@@ -15,7 +17,7 @@ pub enum CellT {
 }
 
 /// Represents a single tile of the board
-#[derive(Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq, Deserialize, Serialize)]
 pub struct Cell {
     pub t: CellT,
     pub hazard: bool,
@@ -50,7 +52,7 @@ impl std::fmt::Debug for Cell {
 ///
 /// This is allows fast access to specific positions on the grid and
 /// if they are occupied by enemies or food.
-#[derive(Clone)]
+#[derive(Clone, Deserialize, Serialize)]
 pub struct Grid {
     pub width: usize,
     pub height: usize,

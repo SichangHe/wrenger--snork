@@ -3,6 +3,7 @@ use std::collections::{BinaryHeap, VecDeque};
 use std::fmt::{self, Debug};
 
 use owo_colors::{AnsiColors, OwoColorize};
+use serde::{Deserialize, Serialize};
 
 use crate::env::{Battlesnake, Direction, GameRequest, Vec2D, HAZARD_DAMAGE};
 use crate::grid::{Cell, CellT, Grid};
@@ -18,7 +19,7 @@ pub enum Outcome {
 }
 
 /// Reduced representation of a snake.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Snake {
     /// tail to head
     pub body: VecDeque<Vec2D>,
@@ -45,7 +46,7 @@ impl Snake {
 
 /// Game represents holds the complete game state.
 /// This also provides methods to execute moves and evaluate their outcome.
-#[derive(Clone)]
+#[derive(Clone, Deserialize, Serialize)]
 pub struct Game {
     pub turn: usize,
     pub grid: Grid,

@@ -101,7 +101,7 @@ pub async fn play_game(
     Outcome::Match
 }
 
-pub fn init_game(width: usize, height: usize, num_agents: usize, rng: &mut SmallRng) -> Game {
+pub fn init_game<R: RngCore>(width: usize, height: usize, num_agents: usize, rng: &mut R) -> Game {
     if width % 2 == 0 || height % 2 == 0 {
         warn!("If the dimension are even, the initial board configuration is unfair!");
     }
