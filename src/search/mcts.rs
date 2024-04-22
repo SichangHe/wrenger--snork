@@ -16,7 +16,6 @@ use super::Heuristic;
 pub struct Player(u8);
 
 impl mocats::Player for Player {}
-impl mocats::GameAction for Direction {}
 
 #[derive(Debug, Clone)]
 struct MctsGame {

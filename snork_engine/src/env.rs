@@ -120,6 +120,9 @@ pub enum Direction {
     Left,
 }
 
+#[cfg(feature = "mocats")]
+impl mocats::GameAction for Direction {}
+
 impl fmt::Display for Direction {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         <Self as Debug>::fmt(self, f)

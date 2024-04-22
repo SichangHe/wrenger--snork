@@ -170,7 +170,7 @@ fn floodfill_normal(c: &mut Criterion) {
         ).unwrap();
 
     let game = Game::from_request(&request);
-    let heuristic = TestH::default();
+    let heuristic = TestH;
     c.bench_function("floodfill_normal", |b| {
         b.iter(|| heuristic.eval(black_box(&game)))
     });
