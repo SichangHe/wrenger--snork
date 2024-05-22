@@ -37,7 +37,7 @@ class DEHBBase:
         max_clip=None,
         boundary_fix_type="random",
         max_age=np.inf,
-        **kwargs
+        **kwargs,
     ):
         # Benchmark related variables
         self.cs = cs
@@ -199,7 +199,7 @@ class DEHB(DEHBBase):
         max_age=np.inf,
         n_workers=None,
         client=None,
-        **kwargs
+        **kwargs,
     ):
         super().__init__(
             cs=cs,
@@ -216,7 +216,7 @@ class DEHB(DEHBBase):
             configspace=configspace,
             boundary_fix_type=boundary_fix_type,
             max_age=max_age,
-            **kwargs
+            **kwargs,
         )
         self.iteration_counter = -1
         self.de = {}
@@ -878,7 +878,7 @@ class DEHB(DEHBBase):
         debug=False,
         save_intermediate=True,
         save_history=True,
-        **kwargs
+        **kwargs,
     ):
         """Main interface to run optimization by DEHB
 

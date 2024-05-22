@@ -22,7 +22,7 @@ class DEBase:
         strategy=None,
         budget=None,
         boundary_fix_type="random",
-        **kwargs
+        **kwargs,
     ):
         # Benchmark related variables
         self.cs = cs
@@ -272,7 +272,7 @@ class DE(DEBase):
         budget=None,
         encoding=False,
         dim_map=None,
-        **kwargs
+        **kwargs,
     ):
         super().__init__(
             cs=cs,
@@ -284,7 +284,7 @@ class DE(DEBase):
             crossover_prob=crossover_prob,
             strategy=strategy,
             budget=budget,
-            **kwargs
+            **kwargs,
         )
         if self.strategy is not None:
             self.mutation_strategy = self.strategy.split("_")[0]
@@ -613,7 +613,7 @@ class AsyncDE(DE):
         strategy="rand1_bin",
         budget=None,
         async_strategy="deferred",
-        **kwargs
+        **kwargs,
     ):
         """Extends DE to be Asynchronous with variations
 
@@ -641,7 +641,7 @@ class AsyncDE(DE):
             crossover_prob=crossover_prob,
             strategy=strategy,
             budget=budget,
-            **kwargs
+            **kwargs,
         )
         if self.strategy is not None:
             self.mutation_strategy = self.strategy.split("_")[0]
